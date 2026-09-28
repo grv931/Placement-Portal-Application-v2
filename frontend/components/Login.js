@@ -1,49 +1,46 @@
 const Login = {
   template: `
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h4 class="mb-0">Login</h4>
-                    </div>
-
-                    <div class="card-body">
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
                     
-                        <div v-if="error" class="alert alert-danger">
+                    <div class="glass-card p-4 p-md-5">
+                        <div class="auth-header">
+                            <h2>Welcome Back</h2>
+                            <p>Sign in to continue to the portal</p>
+                        </div>
+                        
+                        <div v-if="error" class="alert alert-danger" style="background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.3); color: #ff6b6b;">
                             {{ error }}
                         </div>
 
                         <form @submit.prevent="login">
-
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" v-model="email" placeholder="Email" required>
+                            <div class="mb-4">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control custom-input" v-model="email" placeholder="name@example.com" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control" v-model="password" placeholder="Password" required>
+                                <input type="password" class="form-control custom-input" v-model="password" placeholder="••••••••" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-
+                            <button type="submit" class="btn btn-primary-custom w-100 mb-4">
+                                Sign In
+                            </button>
                         </form>
 
-                        <div class="mt-4 text-center">
-                            <p>Are you a new user? Register below:</p>
-                            <p>
-                                <a href="#/register-company">Register as Company</a>
-                            </p>
-                            <p>
+                        <div class="auth-links text-center mt-3">
+                            <p class="text-secondary mb-2">New to the platform?</p>
+                            <div class="d-flex justify-content-center gap-3">
                                 <a href="#/register-student">Register as Student</a>
-                            </p>
-
+                                <span class="text-secondary">•</span>
+                                <a href="#/register-company">Register as Company</a>
+                            </div>
                         </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

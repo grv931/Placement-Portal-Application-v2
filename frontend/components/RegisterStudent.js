@@ -1,50 +1,48 @@
 const RegisterStudent = {
   template: `
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h4 class="mb-0">Student Registration</h4>
-                    </div>
-
-                    <div class="card-body">
-
-                        <div v-if="error" class="alert alert-danger">
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    
+                    <div class="glass-card p-4 p-md-5">
+                        <div class="auth-header">
+                            <h2>Join as Student</h2>
+                            <p>Create your account to start applying</p>
+                        </div>
+                        
+                        <div v-if="error" class="alert alert-danger" style="background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.3); color: #ff6b6b;">
                             {{ error }}
                         </div>
 
                         <form @submit.prevent="register">
-
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input v-model="name" type="text" class="form-control" placeholder="Name" required>
+                            <div class="mb-4">
+                                <label class="form-label">Full Name</label>
+                                <input v-model="name" type="text" class="form-control custom-input" placeholder="John Doe" required>
                             </div>
                             
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input v-model="email" type="email" class="form-control" placeholder="Email" required>
+                            <div class="mb-4">
+                                <label class="form-label">Email Address</label>
+                                <input v-model="email" type="email" class="form-control custom-input" placeholder="student@example.com" required>
                             </div>
                             
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label class="form-label">Password</label>
-                                <input v-model="password" type="password" class="form-control" placeholder="Password" required>
+                                <input v-model="password" type="password" class="form-control custom-input" placeholder="••••••••" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Register</button>
-
+                            <button type="submit" class="btn btn-primary-custom w-100 mb-4">
+                                Register Account
+                            </button>
                         </form>
 
-                        <div class="mt-4 text-center">
-                            <p>
-                                <a href="#/login">Back to Login</a>
-                            </p>
+                        <div class="auth-links text-center mt-3">
+                            <p class="text-secondary mb-2">Already have an account?</p>
+                            <a href="#/login">Back to Login</a>
                         </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
