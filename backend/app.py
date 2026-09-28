@@ -6,7 +6,9 @@ from apps.celery_workers import celery
 from apps.models import User, Role
 
 def create_app():
-    app = Flask(__name__)
+    import os
+    frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+    app = Flask(__name__, static_folder=frontend_dir, static_url_path='/')
     app.config.from_object(Config)
 
     CORS(app)
@@ -15,6 +17,10 @@ def create_app():
     jwt.init_app(app)
     cache.init_app(app)
     mail.init_app(app)
+
+    @app.route('/')
+    def index():
+        return app.send_static_file('index.html')
 
     from apps.routes.auth_routes import auth_bp
     from apps.routes.admin_routes import admin_bp
