@@ -1,5 +1,11 @@
 # Placement Portal Application V2
 
+**Live Link 🔗:** [https://placement-portal-application-v2-4y0r.onrender.com/](https://placement-portal-application-v2-4y0r.onrender.com/)
+
+**Admin Credentials:**
+- **Email:** `a@a.com`
+- **Password:** `a`
+
 ## Overview
 
 The Placement Portal Application is a web-based system designed to manage the campus placement process efficiently. The platform connects three types of users: Admin (Placement Cell), Companies, and Students.
