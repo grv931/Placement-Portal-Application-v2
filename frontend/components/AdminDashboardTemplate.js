@@ -20,84 +20,68 @@ const adminDashboardTemplate = `
       </ul>
 
       <div v-if="tab === 'stats'">
-        <h4 class="mb-3">Statistics</h4>
+        <h4 class="mb-3" style="color: var(--text-primary);">Statistics</h4>
         <div class="row g-3 mb-4">
           <div class="col-md-3">
-            <div class="card text-center shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card text-center h-100 p-3">
                 <h5 class="card-title text-muted">Students</h5>
-                <h2 class="mb-0">{{ stats.students }}</h2>
-              </div>
+                <h2 class="mb-0 text-primary" style="color: var(--accent) !important;">{{ stats.students }}</h2>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card text-center shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card text-center h-100 p-3">
                 <h5 class="card-title text-muted">Companies</h5>
-                <h2 class="mb-0">{{ stats.companies }}</h2>
-              </div>
+                <h2 class="mb-0 text-primary" style="color: var(--accent) !important;">{{ stats.companies }}</h2>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card text-center shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card text-center h-100 p-3">
                 <h5 class="card-title text-muted">Drives</h5>
-                <h2 class="mb-0">{{ stats.drives }}</h2>
-              </div>
+                <h2 class="mb-0 text-primary" style="color: var(--accent) !important;">{{ stats.drives }}</h2>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card text-center shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card text-center h-100 p-3">
                 <h5 class="card-title text-muted">Applications</h5>
-                <h2 class="mb-0">{{ stats.applications }}</h2>
-              </div>
+                <h2 class="mb-0 text-primary" style="color: var(--accent) !important;">{{ stats.applications }}</h2>
             </div>
           </div>
         </div>
 
         <div class="row g-4 mb-5">
           <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card h-100 p-3">
                 <h6 class="card-title text-muted text-center mb-3">Students Breakdown</h6>
                 <div style="position:relative; height:220px;">
                   <canvas id="studentsChart"></canvas>
                 </div>
-              </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card h-100 p-3">
                 <h6 class="card-title text-muted text-center mb-3">Companies Breakdown</h6>
                 <div style="position:relative; height:220px;">
                   <canvas id="companiesChart"></canvas>
                 </div>
-              </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-              <div class="card-body">
+            <div class="glass-card h-100 p-3">
                 <h6 class="card-title text-muted text-center mb-3">Drives Breakdown</h6>
                 <div style="position:relative; height:220px;">
                   <canvas id="drivesChart"></canvas>
                 </div>
-              </div>
             </div>
           </div>
         </div>
 
         <div class="row g-4 mb-5">
           <div class="col-md-12">
-            <div class="card shadow-sm">
-              <div class="card-body">
+            <div class="glass-card p-4">
                 <h6 class="card-title text-muted text-center mb-3">Placements Overview</h6>
                 <div style="position:relative; height:150px;">
                   <canvas id="placementsChart"></canvas>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -105,22 +89,22 @@ const adminDashboardTemplate = `
 
       <div v-if="tab === 'students'">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="mb-0">Students</h4>
+          <h4 class="mb-0" style="color: var(--text-primary);">Students</h4>
           <div class="input-group w-auto">
-            <input v-model="studentSearch" class="form-control" placeholder="Search student">
-            <button class="btn btn-outline-secondary" @click="getStudents">Search</button>
+            <input v-model="studentSearch" class="form-control custom-input" placeholder="Search student">
+            <button class="btn btn-primary-custom" @click="getStudents">Search</button>
           </div>
         </div>
 
-        <div class="table-responsive shadow-sm rounded">
-          <table class="table table-hover table-striped mb-0 align-middle">
-            <thead class="table-light">
+        <div class="table-responsive glass-card">
+          <table class="table table-hover mb-0 align-middle table-dark-custom">
+            <thead>
               <tr>
                 <th style="width: 20%">Name</th>
                 <th style="width: 25%">Email</th>
                 <th style="width: 20%">Roll Number</th>
                 <th class="text-center" style="width: 15%">Status</th>
-                <th class="text-end" style="width: 20%">Action</th>
+                <th class="text-end" style="width: 20%; border-top-right-radius: 24px;">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -149,29 +133,29 @@ const adminDashboardTemplate = `
 
       <div v-if="tab === 'companies'"> 
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="mb-0">Companies</h4>
+          <h4 class="mb-0" style="color: var(--text-primary);">Companies</h4>
           <div class="input-group w-auto">
-            <input v-model="companySearch" class="form-control" placeholder="Search company">
-            <button class="btn btn-outline-secondary" @click="getCompanies">Search</button>
+            <input v-model="companySearch" class="form-control custom-input" placeholder="Search company">
+            <button class="btn btn-primary-custom" @click="getCompanies">Search</button>
           </div>
         </div>
 
-        <div class="table-responsive shadow-sm rounded">
-          <table class="table table-hover table-striped mb-0 align-middle">
-            <thead class="table-light">
+        <div class="table-responsive glass-card">
+          <table class="table table-hover mb-0 align-middle table-dark-custom">
+            <thead>
               <tr>
                 <th style="width: 25%">Company</th>
                 <th style="width: 25%">Website</th>
                 <th class="text-center" style="width: 15%">Approval</th>
                 <th class="text-center" style="width: 15%">Status</th>
-                <th class="text-end" style="width: 20%">Actions</th>
+                <th class="text-end" style="width: 20%; border-top-right-radius: 24px;">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="company in companies" :key="company.id">
                 <td class="fw-medium">{{ company.company_name }}</td>
                 <td>
-                  <a v-if="company.website" :href="company.website.startsWith('http') ? company.website : 'https://' + company.website" target="_blank" class="text-decoration-none">
+                  <a v-if="company.website" :href="company.website.startsWith('http') ? company.website : 'https://' + company.website" target="_blank" style="color: var(--accent);">
                     {{ company.website }}
                   </a>
                   <span v-else class="text-muted small">N/A</span>
@@ -190,7 +174,7 @@ const adminDashboardTemplate = `
                   <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-success" v-if="company.approval_status !== 'approved'" @click="changeCompanyStatus(company.id, 'approved')">Approve</button>
                     <button class="btn btn-outline-danger" v-if="company.approval_status !== 'rejected'" @click="changeCompanyStatus(company.id, 'rejected')">Reject</button>
-                    <button class="btn" :class="company.is_blacklisted ? 'btn-outline-secondary' : 'btn-outline-dark'" @click="blacklist(company.user_id)">
+                    <button class="btn" :class="company.is_blacklisted ? 'btn-outline-secondary' : 'btn-outline-warning'" @click="blacklist(company.user_id)">
                       {{ company.is_blacklisted ? 'Unblacklist' : 'Blacklist' }}
                     </button>
                   </div>
@@ -205,18 +189,18 @@ const adminDashboardTemplate = `
       </div>
 
       <div v-if="tab === 'drives'">
-        <h4 class="mb-3">Placement Drives</h4>
+        <h4 class="mb-3" style="color: var(--text-primary);">Placement Drives</h4>
 
-        <div class="table-responsive shadow-sm rounded">
-          <table class="table table-hover table-striped mb-0 align-middle">
-            <thead class="table-light">
+        <div class="table-responsive glass-card">
+          <table class="table table-hover mb-0 align-middle table-dark-custom">
+            <thead>
               <tr>
                 <th style="width: 20%">Company</th>
                 <th style="width: 25%">Job Title</th>
                 <th style="width: 15%">CTC</th>
                 <th style="width: 15%">Deadline</th>
                 <th class="text-center" style="width: 10%">Status</th>
-                <th class="text-end" style="width: 15%">Actions</th>
+                <th class="text-end" style="width: 15%; border-top-right-radius: 24px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -247,17 +231,17 @@ const adminDashboardTemplate = `
       </div>
 
       <div v-if="tab === 'applications'">
-        <h4 class="mb-3">Applications</h4>
+        <h4 class="mb-3" style="color: var(--text-primary);">Applications</h4>
 
-        <div class="table-responsive shadow-sm rounded">
-          <table class="table table-hover table-striped mb-0 align-middle">
-            <thead class="table-light">
+        <div class="table-responsive glass-card">
+          <table class="table table-hover mb-0 align-middle table-dark-custom">
+            <thead>
               <tr>
                 <th style="width: 20%">Student</th>
                 <th style="width: 20%">Company</th>
                 <th style="width: 25%">Job</th>
                 <th class="text-center" style="width: 15%">Status</th>
-                <th class="text-end" style="width: 20%">Applied At</th>
+                <th class="text-end" style="width: 20%; border-top-right-radius: 24px;">Applied At</th>
               </tr>
             </thead>
             <tbody>
