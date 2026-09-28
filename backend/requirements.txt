@@ -8,3 +8,4 @@ SQLAlchemy==2.0.31
 celery==5.4.0
 redis==5.0.8
 Flask-Mail==0.9.1
+gunicorn==22.0.0
